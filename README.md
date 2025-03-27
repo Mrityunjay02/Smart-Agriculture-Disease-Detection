@@ -1,151 +1,110 @@
-# Plant Disease Detection 
+# Smart Agriculture - Plant Disease Detection 
 
-A modern web application for detecting and analyzing plant diseases using deep learning and computer vision techniques.
+An AI-powered agricultural assistant that helps farmers detect and manage plant diseases through image analysis and intelligent recommendations.
 
 ## Features
 
-- **Real-time Disease Detection**: Upload plant leaf images and get instant disease detection results
-- **Symptom Analysis**: Advanced image processing to identify specific disease symptoms
-- **Treatment Recommendations**: Get detailed treatment guides based on detected diseases
-- **Multi-crop Support**: Supports multiple crops including:
-  - Pepper (Bell Pepper)
-  - Potato
-  - Tomato
+### 1. Plant Disease Detection
+- Upload leaf images for instant disease analysis
+- Advanced AI-powered disease recognition
+- Confidence score for disease detection
+- Severity level assessment (Low/Medium/High)
 
-## Technology Stack
+### 2. Smart Analysis
+- Detailed symptom identification
+- Customized treatment recommendations
+- Prevention measures and best practices
+- Historical analysis tracking
 
-### Backend (Python)
-- **Framework**: Flask
-- **Deep Learning**: TensorFlow/Keras
-- **Image Processing**: OpenCV, TensorFlow Image
-- **Model**: Custom CNN trained on plant disease dataset
-- **Features**: 
-  - Color analysis (HSV color space)
-  - Spot detection
-  - Texture analysis
-  - Symptom identification
+### 3. User-Friendly Interface
+- Interactive chat interface with Farmer AI
+- Voice input support for queries
+- Image gallery for tracking plant health
+- Easy-to-read analysis reports
 
-### Frontend (React)
-- **Framework**: React with TypeScript
-- **UI Library**: Material-UI (MUI)
-- **State Management**: React Hooks
-- **Features**:
-  - Responsive design
-  - Real-time feedback
-  - Image preview
-  - Treatment guide display
+### 4. Analysis History
+- Save and track all plant analyses
+- Monitor disease progression
+- View historical data through chips
+- Track treatment effectiveness
 
-## Project Structure
+## Technical Stack
 
-```
-.
-├── app.py                 # Flask backend server
-├── train.ipynb           # Model training notebook
-├── Dataset/              # Training dataset
-│   ├── Pepper/
-│   ├── Potato/
-│   └── Tomato/
-├── Saved_Models/         # Trained model files
-├── uploads/              # Temporary image upload directory
-└── frontend/            # React frontend application
-    ├── src/
-    │   ├── components/  # React components
-    │   └── utils/       # Utility functions
-    └── public/          # Static files
-```
+### Frontend
+- React.js with TypeScript
+- Web Speech API for voice recognition
+- Local Storage for analysis history
+- Responsive design for all devices
+
+### AI/ML
+- Google Gemini API for image analysis
+- Advanced prompt engineering
+- Multi-language support
+- Real-time processing
 
 ## Installation
 
-1. **Backend Setup**
+1. Clone the repository:
 ```bash
-# Create and activate virtual environment
-python -m venv venv
-source venv/bin/activate  # Linux/Mac
-venv\Scripts\activate     # Windows
-
-# Install dependencies
-pip install -r requirements.txt
+git clone https://github.com/Mrityunjay02/Smart-Agriculture-Disease-Detection.git
 ```
 
-2. **Frontend Setup**
+2. Install dependencies:
 ```bash
 cd frontend
 npm install
 ```
 
-## Running the Application
-
-1. **Start Backend Server**
-```bash
-python app.py
+3. Set up environment variables:
+Create a `.env` file in the frontend directory:
 ```
-The server will start on http://localhost:5000
+REACT_APP_GEMINI_API_KEY=your_api_key_here
+```
 
-2. **Start Frontend Development Server**
+4. Start the development server:
 ```bash
-cd frontend
 npm start
 ```
-The application will open in your browser at http://localhost:3000
 
-## Model Architecture
+## Environment Variables
 
-The system uses a Convolutional Neural Network (CNN) trained on a large dataset of plant leaf images. The model architecture includes:
-- Input layer (224x224x3)
-- Multiple convolutional and pooling layers
-- Dropout layers for regularization
-- Dense layers with ReLU activation
-- Softmax output layer for classification
+- `REACT_APP_GEMINI_API_KEY`: Google Gemini API key for image analysis
 
-## Image Analysis Pipeline
+## Usage
 
-1. **Image Preprocessing**
-   - Resize to 224x224
-   - Normalize pixel values
-   - Convert to appropriate color spaces
+1. **Upload Image**:
+   - Click the upload button or drag & drop a leaf image
+   - The AI will automatically analyze the image
 
-2. **Disease Detection**
-   - Pass through trained CNN model
-   - Get disease classification and confidence score
+2. **View Analysis**:
+   - Get instant disease detection results
+   - View detailed symptoms and treatment plan
+   - Check severity level and recommendations
 
-3. **Symptom Analysis**
-   - Color analysis in HSV space
-   - Spot detection using convolution
-   - Texture analysis using variance
+3. **Track History**:
+   - Click on history chips to view past analyses
+   - Monitor plant health over time
+   - Track treatment progress
 
-4. **Treatment Recommendation**
-   - Match detected disease with treatment database
-   - Provide customized recommendations based on symptoms
-
-## Performance
-
-- Model Accuracy: ~98% on test set
-- Average Response Time: <2 seconds
-- Supported Image Formats: JPEG, PNG
-- Maximum Image Size: 5MB
-
-## Future Improvements
-
-1. **Model Enhancement**
-   - Add support for more crop types
-   - Improve accuracy for early-stage diseases
-   - Implement disease severity estimation
-
-2. **Feature Additions**
-   - Mobile app development
-   - Offline mode support
-   - Multi-language support
-   - Image enhancement tools
-
-3. **System Optimization**
-   - Model quantization for faster inference
-   - Batch processing capability
-   - Cloud deployment options
+4. **Voice Interaction**:
+   - Click the microphone button
+   - Ask questions about plant health
+   - Get voice responses
 
 ## Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgments
+
+- Google Gemini API for powerful image analysis
+- React.js community for excellent tools and libraries
+- Contributors and testers who helped improve the system
