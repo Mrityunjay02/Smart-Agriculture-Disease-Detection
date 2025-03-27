@@ -1,4 +1,3 @@
-from typing import Dict, List, Tuple
 import json
 
 class TreatmentAnalyzer:
@@ -231,9 +230,9 @@ class TreatmentAnalyzer:
             }
         }
 
-    def get_treatment_info(self, disease_class: str, confidence: float) -> Dict:
+    def get_treatment_info(self, disease_class: str) -> dict:
         """
-        Get treatment information based on disease class and confidence score
+        Get treatment information based on disease class
         """
         if disease_class not in self.disease_info:
             return {
@@ -244,29 +243,27 @@ class TreatmentAnalyzer:
         info = self.disease_info[disease_class]
         
         # Determine severity based on confidence score
-        severity = self._determine_severity(confidence)
+        severity = self._determine_severity(0.5)
         
         return {
             'disease': disease_class,
-            'confidence': confidence,
             'severity': severity,
             'symptoms': info['symptoms'],
-            'treatment': info['treatment'],
-            'severity_description': info['severity_indicators'].get(severity, 'Unknown severity')
+            'treatment': info['treatment']
         }
 
     def _determine_severity(self, confidence: float) -> str:
         """
         Determine severity based on confidence score
         """
-        if confidence < 0.5:
-            return 'mild'
-        elif confidence < 0.8:
-            return 'moderate'
+        if confidence >= 0.8:
+            return 'high'
+        elif confidence >= 0.6:
+            return 'medium'
         else:
-            return 'severe'
+            return 'low'
 
-    def get_all_diseases(self) -> List[str]:
+    def get_all_diseases(self) -> list:
         """
         Get list of all diseases
         """
